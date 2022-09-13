@@ -45,7 +45,7 @@ function Dashboard({ date, setDate, handleCancel }) {
   }, [query, route, setDate]);
   useEffect(loadDashboard, [date]);
 
-  const handleClear = async (table) => {
+  async function handleClear(tableId) {
     const abortController = new AbortController();
 
     try {
@@ -54,18 +54,14 @@ function Dashboard({ date, setDate, handleCancel }) {
           "Is this table ready to seat new guests? This cannot be undone."
         )
       ) {
-        await deleteTable(table, abortController.signal);
-        loadDashboard();
+        await deleteTable(tableId);
+        history.go();
       }
-      loadDashboard();
-    } catch (err) {
-      if (err.name !== "AbortError") {
-        setReservationsError(err);
-      }
-      console.log("Abort");
+    } catch (error) {
+      setReservationsError(error);
     }
     return () => abortController.abort();
-  };
+  }
 
   return (
     <main className="container fluid mt-3">

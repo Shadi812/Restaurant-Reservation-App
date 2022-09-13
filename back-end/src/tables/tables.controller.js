@@ -104,11 +104,11 @@ function validCapacity(req, res, next) {
 }
 
 function checkIfOccupied(req, res, next) {
-  const table = res.locals.table;
-  if (table.reservation_id === null) {
-    return next({
+  const { reservation_id } = res.locals.table;
+  if (!reservation_id) {
+    next({
       status: 400,
-      message: "Table is not occupied!",
+      message: `The table is not occupied`,
     });
   }
   next();
@@ -132,8 +132,7 @@ async function create(req, res, next) {
 }
 
 function read(req, res) {
-  const { table: data } = res.locals;
-  res.json({ data });
+  res.json({ data: res.locals.table });
 }
 
 async function update(req, res, next) {
@@ -155,7 +154,7 @@ async function list(req, res) {
   res.json({ data });
 }
 
-async function clearTable(req, res, next) {
+async function deleteTable(req, res, next) {
   const table = res.locals.table;
   const clearedTable = {
     ...table,
@@ -183,6 +182,6 @@ module.exports = {
   destroy: [
     asyncErrorBoundary(tableExists),
     asyncErrorBoundary(checkIfOccupied),
-    clearTable,
+    deleteTable,
   ],
 };

@@ -205,15 +205,18 @@ export async function updateTable(reservationId, tableId, signal) {
  * @returns {Promise<Error|*>}
  *  a promise that resolves to an empty object.
  */
-export async function deleteTable(tableId) {
-  const url = `${API_BASE_URL}/tables/${tableId}/seat`;
+export async function deleteTable(updatedTable, signal) {
+  const url = `${API_BASE_URL}/tables/${updatedTable.table_id}/seat`;
   const options = {
     method: "DELETE",
+    headers,
+    body: JSON.stringify({ data: updatedTable }),
+    signal,
   };
-  return await fetchJson(url, options);
+  return await fetchJson(url, options, updatedTable);
 }
 /**
- * Deletes the card with the specified `reservationId`.
+ * Deletes the specified `reservationId`.
  * @param reservationId
  *  the id of the reservation to delete
  * @param signal
