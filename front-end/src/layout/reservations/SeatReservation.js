@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { updateTable } from "../../utils/api";
 import ErrorAlert from "../ErrorAlert";
-import SeatTable from "../tables/SeatTable";
+import Tables from "../tables/Tables";
 
 function SeatReservation() {
   const reservationId = useParams();
@@ -43,7 +43,7 @@ function SeatReservation() {
               className="form-input"
               onChange={handleChange}
             >
-              <SeatTable />
+              <Tables />
             </select>
           </div>
           <div className="form-item mt-2 mb-2">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { listTables } from "../../utils/api";
 
-function SeatTable() {
+function Tables() {
   const [tableList, setTableList] = useState([]);
   useEffect(() => {
     const abortController = new AbortController();
@@ -30,4 +30,4 @@ function SeatTable() {
   return tableOptions;
 }
 
-export default SeatTable;
+export default Tables;

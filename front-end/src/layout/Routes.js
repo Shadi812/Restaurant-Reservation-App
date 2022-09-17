@@ -7,7 +7,6 @@ import EditReservation from "./reservations/EditReservation";
 import NewReservation from "./reservations/NewReservation";
 import SearchReservations from "./reservations/SearchReservations";
 import NewTable from "./tables/NewTable";
-// import SeatTable from "./tables/SeatTable";
 import SeatReservation from "./reservations/SeatReservation";
 
 /**

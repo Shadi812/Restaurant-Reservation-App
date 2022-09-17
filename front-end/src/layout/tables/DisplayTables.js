@@ -1,6 +1,6 @@
 import React from "react";
 
-function DisplayTables({ reservation_id, table_id, tables, handleClear }) {
+function DisplayTables({ tables, handleClear }) {
   const showTables = tables.map((table) => {
     return (
       <div className="container fluid my-3">
