@@ -19,7 +19,7 @@ function Tables() {
     return () => abortController.abort();
   }, []);
 
-  const tableOptions = tableList.map((table) => {
+  const tableChoice = tableList.map((table) => {
     return (
       <option key={table.table_id} value={table.table_id}>
         {table.table_name} - {table.capacity}
@@ -27,7 +27,7 @@ function Tables() {
     );
   });
 
-  return tableOptions;
+  return tableChoice;
 }
 
 export default Tables;

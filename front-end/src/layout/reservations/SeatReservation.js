@@ -29,7 +29,7 @@ function SeatReservation() {
   };
 
   return (
-    <>
+    <div>
       <main className="m-3">
         <div className="page-head-container">
           <h2>Seating Reservation: {reservationId.reservation_id}</h2>
@@ -61,7 +61,7 @@ function SeatReservation() {
           </div>
         </form>
       </main>
-    </>
+    </div>
   );
 }
 

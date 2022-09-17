@@ -96,7 +96,7 @@ function dayIsValid(req, res, next) {
   if (day === "Tuesday") {
     return next({
       status: 400,
-      message: "Sorry, we are  closed on Tuesdays",
+      message: "The restaurant is closed on Tuesdays",
     });
   }
   if (time <= "10:30" || time >= "21:30") {

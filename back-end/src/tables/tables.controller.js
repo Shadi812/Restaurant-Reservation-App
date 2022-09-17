@@ -24,7 +24,7 @@ async function tableExists(req, res, next) {
   }
   next({
     status: 404,
-    message: `Table ${table_id} Not Found`,
+    message: `Table ${table_id} does not exist`,
   });
 }
 
@@ -50,7 +50,7 @@ function checkValidProperties(req, res, next) {
     if (property === "table_name" && data.table_name.length <= 1) {
       return next({
         status: 400,
-        message: `${property} required to be at least 2 characters in length`,
+        message: `table_name must be at least 2 characters long`,
       });
     }
 
@@ -60,7 +60,7 @@ function checkValidProperties(req, res, next) {
     ) {
       return next({
         status: 400,
-        message: `${property} required to be a number of 1 or greater`,
+        message: `capacity must be a number greater than 0`,
       });
     }
   });
@@ -94,10 +94,15 @@ function validCapacity(req, res, next) {
         "Table does not have sufficient capacity to handle this reservation",
     });
   }
-  if (table.reservation_id !== null) {
-    return next({
+  next();
+}
+
+function occupiedTable(req, res, next) {
+  const { reservation_id } = res.locals.table;
+  if (reservation_id) {
+    next({
       status: 400,
-      message: "Table is occupied!",
+      message: `This table is occupied`,
     });
   }
   next();
@@ -108,7 +113,7 @@ function checkIfOccupied(req, res, next) {
   if (!reservation_id) {
     next({
       status: 400,
-      message: `The table is not occupied`,
+      message: `This table is not occupied`,
     });
   }
   next();
@@ -119,7 +124,7 @@ function alreadySeated(req, res, next) {
   if (status === "seated") {
     return next({
       status: 400,
-      message: `The reservation you selected is already seated.`,
+      message: `The reservation is already seated.`,
     });
   }
   next();
@@ -175,6 +180,7 @@ module.exports = {
     asyncErrorBoundary(tableExists),
     validTable,
     validReservation,
+    occupiedTable,
     validCapacity,
     alreadySeated,
     asyncErrorBoundary(update),
