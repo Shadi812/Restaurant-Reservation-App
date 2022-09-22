@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from "react-router-dom";
 import DisplayReservation from "../layout/reservations/DisplayReservation";
 import DisplayTables from "../layout/tables/DisplayTables";
 
-import { listReservations, listTables, deleteTable } from "../utils/api";
+import { listReservations, listTables } from "../utils/api";
 
 import ErrorAlert from "../layout/ErrorAlert";
 import { next, previous, today } from "../utils/date-time";
@@ -45,24 +45,6 @@ function Dashboard({ date, setDate, handleCancel }) {
   }, [query, route, setDate]);
   useEffect(loadDashboard, [date]);
 
-  async function handleClear(tableId) {
-    const abortController = new AbortController();
-
-    try {
-      if (
-        window.confirm(
-          "Is this table ready to seat new guests? This cannot be undone."
-        )
-      ) {
-        await deleteTable(tableId);
-        history.go();
-      }
-    } catch (error) {
-      setReservationsError(error);
-    }
-    return () => abortController.abort();
-  }
-
   return (
     <main className="container fluid mt-3">
       <h1 className="text-center">Dashboard</h1>
@@ -100,7 +82,7 @@ function Dashboard({ date, setDate, handleCancel }) {
       <div className="mt-4 text-center">
         <h1>Tables</h1>
       </div>
-      <DisplayTables tables={tables} handleClear={handleClear} />
+      <DisplayTables tables={tables} />
       <div className="d-flex justify-content-between m-4"></div>
     </main>
   );

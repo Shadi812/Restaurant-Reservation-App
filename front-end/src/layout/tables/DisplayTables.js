@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { deleteTable } from "../../utils/api";
+import ErrorAlert from "../ErrorAlert";
 
-function DisplayTables({ tables, handleClear }) {
+function DisplayTables({ tables }) {
+  const [error, setError] = useState(null);
+  const history = useHistory();
+
+  async function handleClear(tableId) {
+    const abortController = new AbortController();
+
+    try {
+      if (
+        window.confirm(
+          "Is this table ready to seat new guests? This cannot be undone."
+        )
+      ) {
+        await deleteTable(tableId);
+        history.go();
+      }
+    } catch (error) {
+      setError(error);
+    }
+    return () => abortController.abort();
+  }
+
   const showTables = tables.map((table) => {
     return (
       <div className="container fluid my-3">
@@ -33,7 +57,14 @@ function DisplayTables({ tables, handleClear }) {
     );
   });
 
-  return <div className="center"> {showTables}</div>;
+  return (
+    <div>
+      <div className="tables-container">
+        <ErrorAlert error={error} />
+        {showTables}
+      </div>
+    </div>
+  );
 }
 
 export default DisplayTables;

@@ -30,13 +30,13 @@ function SeatReservation() {
 
   return (
     <div>
-      <main className="m-3">
+      <main className="m-3 text-center">
         <div className="page-head-container">
           <h2>Seating Reservation: {reservationId.reservation_id}</h2>
         </div>
         <ErrorAlert error={seatingError} />
         <form onSubmit={handleSeating} className="form-card">
-          <div className="form-item">
+          <div className="form-control-lg">
             <label htmlFor="table_id">Select a Table</label>
             <select
               name="table_id"
@@ -46,15 +46,15 @@ function SeatReservation() {
               <Tables />
             </select>
           </div>
-          <div className="form-item mt-2 mb-2">
+          <div className="">
             <input
               type="submit"
-              className="btn btn-success form-button"
+              className="btn btn-success m-3"
               value={"Submit"}
             />
             <input
               type="button"
-              className="btn btn-secondary form-button"
+              className="btn btn-danger m-3"
               value={"Cancel"}
               onClick={() => history.goBack()}
             />
