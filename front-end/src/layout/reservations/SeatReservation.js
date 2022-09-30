@@ -32,7 +32,7 @@ function SeatReservation() {
     <div>
       <main className="m-3 text-center">
         <div className="page-head-container">
-          <h2>Seating Reservation: {reservationId.reservation_id}</h2>
+          <h2>Seat Reservation: {reservationId.reservation_id}</h2>
         </div>
         <ErrorAlert error={seatingError} />
         <form onSubmit={handleSeating} className="form-card">

@@ -8,7 +8,6 @@ function ReservationForm({ handleChange, handleSubmit, formData }) {
     <div>
       <form onSubmit={handleSubmit} className="form-card">
         <fieldset>
-          <legend className="form-item">Reservation Form</legend>
           <div className="form-item">
             <label htmlFor="first_name">First Name:</label>
             <input

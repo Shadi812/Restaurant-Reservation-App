@@ -4,14 +4,14 @@
  * You will not need to make changes to this file.
  */
 
-require('dotenv').config();
+require("dotenv").config();
 const path = require("path");
 
 const {
-  DATABASE_URL = "postgresql://postgres@localhost/postgres",
-  DATABASE_URL_DEVELOPMENT = "postgresql://postgres@localhost/postgres",
-  DATABASE_URL_TEST = "postgresql://postgres@localhost/postgres",
-  DATABASE_URL_PREVIEW = "postgresql://postgres@localhost/postgres",
+  DATABASE_URL = "postgres://vtgzvhis:qvXs9SQqtawFzkrK9C9pDAiZzyf1cBJC@ruby.db.elephantsql.com/vtgzvhis",
+  DATABASE_URL_DEVELOPMENT = "postgres://yqztrfic:jodSjaxMUGeFYOw0PZAXxdiLIVrh2TiA@ruby.db.elephantsql.com/yqztrfic",
+  DATABASE_URL_TEST = "postgres://hubxfrux:Dw4n9LNnYCe7IXcanEjDoVuvR9ZqV1J-@queenie.db.elephantsql.com/hubxfrux",
+  DATABASE_URL_PREVIEW = "postgres://mbmqlhuz:xhkWwLng6mLvuciArXWQPlQcvBw1fZ1z@queenie.db.elephantsql.com/mbmqlhuz",
   DEBUG,
 } = process.env;
 
