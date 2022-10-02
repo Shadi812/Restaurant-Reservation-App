@@ -35,7 +35,7 @@ function DisplayTables({ tables }) {
                 Table: {table.table_name}
               </h5>
               <h5 className="card-title text-center">
-                Capacity: {table.table_id}
+                Capacity: {table.capacity}
               </h5>
               <h5 className="text-center" table-status={table.table_id}>
                 Status: {table.reservation_id ? "Occupied" : "Free"}
