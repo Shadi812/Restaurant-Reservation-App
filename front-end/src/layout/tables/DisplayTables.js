@@ -31,9 +31,7 @@ function DisplayTables({ tables }) {
         <div key={table.table_id} className="col">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title text-center">
-                Table: {table.table_name}
-              </h5>
+              <h5 className="card-title text-center">{table.table_name}</h5>
               <h5 className="card-title text-center">
                 Capacity: {table.capacity}
               </h5>
