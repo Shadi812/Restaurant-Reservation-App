@@ -37,7 +37,7 @@ function NewTable() {
 
   return (
     <div className="container fluid">
-      <h3 className="text-center">Create New Table</h3>
+      <h3 className="text-center">Create A New Table</h3>
 
       <TableForm
         handleChange={handleChange}

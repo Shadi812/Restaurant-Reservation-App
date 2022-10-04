@@ -9,7 +9,6 @@ function TableForm({ tableData, tableError, handleSubmit, handleChange }) {
     <div>
       <form className="d-flex flex-column" onSubmit={handleSubmit}>
         <fieldset>
-          <legend className="form-item"> Create A New Table</legend>
           <ErrorAlert error={tableError} />
           <label htmlFor="table_name"> Table Name: </label>
           <input
