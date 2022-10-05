@@ -46,7 +46,7 @@ function NewReservation() {
 
   return (
     <div className="container fluid">
-      <h3 className="text-center">Create New Reservation</h3>
+      <h3 className="text-center">Create A New Reservation</h3>
       <ErrorAlert error={reservationError} />
 
       <ReservationForm

@@ -34,7 +34,7 @@ function ReservationForm({ handleChange, handleSubmit, formData }) {
               value={formData.last_name}
             />
           </div>
-          <div className="form-item">
+          <div className="form-item ">
             <label htmlFor="mobile_number">Mobile Number:</label>
             <input
               className="form-control"
@@ -87,12 +87,15 @@ function ReservationForm({ handleChange, handleSubmit, formData }) {
             />
           </div>
         </fieldset>
-        <div className="form-item mt-2 mb-2">
-          <button className="form-button btn btn-success" type="submit">
+        <div className="form-item mt-5   ">
+          <button
+            className=" form-button  btn btn-lg btn-success  "
+            type="submit"
+          >
             Submit
           </button>
           <button
-            className="form-button btn btn-danger"
+            className="form-button btn btn-lg btn-danger"
             type="button"
             onClick={() => history.push("/")}
           >

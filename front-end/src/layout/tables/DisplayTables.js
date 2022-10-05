@@ -39,7 +39,7 @@ function DisplayTables({ tables }) {
                 Status: {table.reservation_id ? "Occupied" : "Free"}
               </h5>
 
-              <div className="table-button-container text-center">
+              <div className="text-center">
                 <button
                   className="btn btn-danger"
                   data-table-id-finish={table.table_id}
