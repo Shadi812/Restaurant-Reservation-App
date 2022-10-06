@@ -31,9 +31,12 @@ function DisplayTables({ tables }) {
         <div key={table.table_id} className="col">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title text-center">{table.table_name}</h5>
               <h5 className="card-title text-center">
-                Capacity: {table.capacity}
+                {" "}
+                Table: {table.table_name}
+              </h5>
+              <h5 className="card-title text-center">
+                Table Size: {table.capacity}
               </h5>
               <h5 className="text-center" table-status={table.table_id}>
                 Status: {table.reservation_id ? "Occupied" : "Free"}
