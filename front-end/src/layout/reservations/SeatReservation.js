@@ -37,7 +37,7 @@ function SeatReservation() {
         <ErrorAlert error={seatingError} />
         <form onSubmit={handleSeating} className="form-card">
           <div className="form-control-lg">
-            <label htmlFor="table_id">Select a Table</label>
+            <label htmlFor="table_id">Select a Table: </label>
             <select
               name="table_id"
               className="form-input"
@@ -46,7 +46,7 @@ function SeatReservation() {
               <Tables />
             </select>
           </div>
-          <div className="">
+          <div className="form-item mt-2 mb-2">
             <input
               type="submit"
               className="btn btn-success m-3"
