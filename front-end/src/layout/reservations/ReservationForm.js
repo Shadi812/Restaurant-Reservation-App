@@ -87,15 +87,15 @@ function ReservationForm({ handleChange, handleSubmit, formData }) {
             />
           </div>
         </fieldset>
-        <div className="form-item mt-5   ">
+        <div className="form-item mt-3   ">
           <button
-            className=" form-button  btn btn-lg btn-success  "
+            className=" form-button  btn btn-block btn-success  "
             type="submit"
           >
             Submit
           </button>
           <button
-            className="form-button btn btn-lg btn-danger"
+            className="form-button btn btn-block btn-danger"
             type="button"
             onClick={() => history.push("/")}
           >

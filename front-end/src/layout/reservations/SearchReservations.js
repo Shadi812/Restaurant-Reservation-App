@@ -45,7 +45,7 @@ function SearchReservations() {
           placeholder="Enter a customer's phone number"
           required
         />
-        <button className="form-button btn btn-success" type="submit">
+        <button className="form-button btn btn-block btn-success" type="submit">
           Find
         </button>
       </form>

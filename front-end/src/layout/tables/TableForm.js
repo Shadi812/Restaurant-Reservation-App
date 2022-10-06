@@ -35,12 +35,12 @@ function TableForm({ tableData, tableError, handleSubmit, handleChange }) {
           />
         </fieldset>
         <div className="form-item mt-2 mb-2">
-          <button type="submit" className="btn btn-success btn-lg">
+          <button type="submit" className="btn btn-success btn-block">
             Submit
           </button>
           <button
             type="button"
-            className="btn btn-danger btn-lg"
+            className="btn btn-danger btn-block"
             onClick={() => history.goBack()}
           >
             Cancel
