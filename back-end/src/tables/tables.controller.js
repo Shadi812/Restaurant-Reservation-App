@@ -178,8 +178,8 @@ module.exports = {
   read: [asyncErrorBoundary(tableExists), read],
   update: [
     asyncErrorBoundary(tableExists),
-    validTable,
-    validReservation,
+    asyncErrorBoundary(validTable),
+    asyncErrorBoundary(validReservation),
     occupiedTable,
     validCapacity,
     alreadySeated,
@@ -188,6 +188,6 @@ module.exports = {
   destroy: [
     asyncErrorBoundary(tableExists),
     asyncErrorBoundary(checkIfOccupied),
-    deleteTable,
+    asyncErrorBoundary(deleteTable),
   ],
 };

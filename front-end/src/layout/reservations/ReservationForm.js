@@ -40,7 +40,7 @@ function ReservationForm({ handleChange, handleSubmit, formData }) {
               className="form-control"
               id="mobile_number"
               onChange={handleChange}
-              type="text"
+              type="number"
               name="mobile_number"
               required
               placeholder="mobile number"
